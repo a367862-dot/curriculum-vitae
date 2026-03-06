@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ángel Mendoza — CV</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue-deep:   #0a1628;
+      --blue-mid:    #0f2d5e;
+      --blue-accent: #1a6cf6;
+      --blue-light:  #4d9fff;
+      --blue-glow:   #1a6cf620;
+      --white:       #ffffff;
+      --off:         #e8eef8;
+      --muted:       #8ba3c7;
+      --syne: 'Syne', sans-serif;
+      --inter: 'Inter', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--blue-deep);
+      font-family: var(--inter);
+      color: var(--white);
+      min-height: 100vh;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    .orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .orb-1 {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, #1a6cf630, transparent 70%);
+      top: -100px; left: -100px;
+      animation: drift 12s ease-in-out infinite alternate;
+    }
+    .orb-2 {
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, #0f2d5e60, transparent 70%);
+      bottom: 0; right: -100px;
+      animation: drift 15s ease-in-out infinite alternate-reverse;
+    }
+    @keyframes drift {
+      from { transform: translate(0,0); }
+      to   { transform: translate(30px, 40px); }
+    }
+
+    .cv {
+      position: relative;
+      z-index: 1;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px 60px;
+      animation: fadeUp 0.8s cubic-bezier(.16,1,.3,1) both;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(32px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero {
+      padding: 72px 0 56px;
+      border-bottom: 1px solid #ffffff12;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 32px;
+      align-items: end;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--syne);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--blue-light);
+      margin-bottom: 20px;
+    }
+    .hero-badge::before {
+      content: '';
+      width: 28px; height: 1px;
+      background: var(--blue-accent);
+    }
+
+    .hero h1 {
+      font-family: var(--syne);
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      font-weight: 800;
+      line-height: 1.0;
+      letter-spacing: -1px;
+      color: var(--white);
+    }
+    .hero h1 .highlight { color: var(--blue-accent); }
+
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 10px;
+    }
+
+    .contact-pill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #ffffff08;
+      border: 1px solid #ffffff15;
+      border-radius: 100px;
+      padding: 7px 16px;
+      font-size: 0.78rem;
+      color: var(--off);
+      transition: background 0.2s, border-color 0.2s;
+      text-decoration: none;
+    }
+    .contact-pill:hover {
+      background: var(--blue-glow);
+      border-color: var(--blue-accent);
+      color: var(--blue-light);
+    }
+    .contact-pill svg {
+      width: 13px; height: 13px;
+      fill: var(--blue-accent);
+      flex-shrink: 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 0;
+    }
+
+    .main-col { padding: 48px 48px 48px 0; border-right: 1px solid #ffffff0e; }
+    .side-col  { padding: 48px 0 48px 40px; }
+
+    .section { margin-bottom: 44px; }
+    .section:last-child { margin-bottom: 0; }
+
+    .sec-label {
+      font-family: var(--syne);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--blue-accent);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .sec-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, #1a6cf640, transparent);
+    }
+
+    .objetivo p {
+      font-size: 0.9rem;
+      line-height: 1.85;
+      color: var(--muted);
+      font-weight: 300;
+    }
+    .objetivo p strong { color: var(--off); font-weight: 500; }
+
+    .entry {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 30px;
+    }
+    .entry:last-child { margin-bottom: 0; }
+    .entry::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 6px;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--blue-accent);
+      box-shadow: 0 0 8px var(--blue-accent);
+    }
+    .entry::after {
+      content: '';
+      position: absolute;
+      left: 2.5px; top: 16px;
+      width: 1px;
+      height: calc(100% - 8px);
+      background: linear-gradient(to bottom, #1a6cf640, transparent);
+    }
+    .entry:last-child::after { display: none; }
+
+    .entry-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 3px;
+      gap: 12px;
+    }
+    .entry-title {
+      font-family: var(--syne);
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .entry-date {
+      font-size: 0.72rem;
+      color: var(--muted);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .entry-sub {
+      font-size: 0.78rem;
+      color: var(--blue-light);
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+    .entry-desc {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.65;
+      font-weight: 300;
+    }
+
+    .dato { margin-bottom: 18px; }
+    .dato-label {
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 3px;
+    }
+    .dato-value { font-size: 0.84rem; color: var(--off); }
+
+    .lang-item { margin-bottom: 16px; }
+    .lang-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.83rem;
+      margin-bottom: 6px;
+    }
+    .lang-name { color: var(--off); font-weight: 500; }
+    .lang-level { color: var(--muted); font-size: 0.75rem; }
+    .lang-bar { height: 2px; background: #ffffff10; border-radius: 2px; overflow: hidden; }
+    .lang-fill {
+      height: 100%;
+      background: linear-gradient(to right, var(--blue-accent), var(--blue-light));
+      border-radius: 2px;
+    }
+
+    .skills-wrap { display: flex; flex-wrap: wrap; gap: 8px; }
+    .skill {
+      font-size: 0.73rem;
+      font-weight: 500;
+      padding: 5px 13px;
+      border: 1px solid #1a6cf640;
+      border-radius: 100px;
+      color: var(--muted);
+      background: #1a6cf610;
+      transition: all 0.2s;
+      cursor: default;
+    }
+    .skill:hover {
+      background: var(--blue-glow);
+      border-color: var(--blue-accent);
+      color: var(--blue-light);
+    }
+
+    .footer {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid #ffffff0a;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.72rem;
+      color: #ffffff25;
+      font-family: var(--syne);
+      letter-spacing: 1px;
+    }
+    .footer-dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--blue-accent);
+      box-shadow: 0 0 8px var(--blue-accent);
+    }
+
+    @media (max-width: 640px) {
+      .hero { grid-template-columns: 1fr; padding: 48px 0 40px; }
+      .hero-right { align-items: flex-start; }
+      .grid { grid-template-columns: 1fr; }
+      .main-col { padding: 40px 0; border-right: none; border-bottom: 1px solid #ffffff0e; }
+      .side-col  { padding: 40px 0 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <div class="cv">
+    <div class="hero">
+      <div>
+        <div class="hero-badge">Currículum Vitae</div>
+        <h1>Ángel Andrés<br><span class="highlight">Mendoza</span> Hurtado</h1>
+      </div>
+      <div class="hero-right">
+        <a class="contact-pill" href="mailto:a367862@uach.mx">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          a367862@uach.mx
+        </a>
+        <a class="contact-pill" href="tel:6143820759">
+          <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+          614 382 0759
+        </a>
+        <a class="contact-pill" href="https://github.com/a367862-dot" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.49.5.09.66-.22.66-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.56 9.56 0 0 1 12 6.8c.85 0 1.71.11 2.51.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.16.58.67.48A10.01 10.01 0 0 0 22 12c0-5.52-4.48-10-10-10z"/></svg>
+          a367862-dot
+        </a>
+        <a class="contact-pill" href="#">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Chihuahua, Chih.
+        </a>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="main-col">
+
+        <div class="section objetivo">
+          <div class="sec-label">Objetivo</div>
+          <p>Estudiante de <strong>Ingeniería de Software</strong> con formación en desarrollo web y tecnologías emergentes, orientado a construir soluciones digitales eficientes y bien estructuradas. Busco integrarme a un entorno profesional que me permita <strong>crecer técnicamente</strong>, aportar desde el primer día y colaborar en proyectos con impacto real.</p>
+        </div>
+
+        <div class="section">
+          <div class="sec-label">Experiencia Profesional</div>
+          <div class="entry">
+            <div class="entry-top">
+              <span class="entry-title">Proyectos Universitarios</span>
+              <span class="entry-date">2023 — Actualidad</span>
+            </div>
+            <div class="entry-sub">UACH · Ingeniería de Software</div>
+            <p class="entry-desc">Desarrollo de aplicaciones y sitios web en equipo como parte de la formación académica, aplicando arquitecturas cliente-servidor, HTML, CSS y buenas prácticas de código.</p>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="sec-label">Preparación Académica</div>
+          <div class="entry">
+            <div class="entry-top">
+              <span class="entry-title">Ingeniería de Software</span>
+              <span class="entry-date">2023 — Actualidad</span>
+            </div>
+            <div class="entry-sub">Universidad Autónoma de Chihuahua (UACH)</div>
+            <p class="entry-desc">Formación en desarrollo de software, arquitecturas web, bases de datos, programación orientada a objetos y metodologías ágiles.</p>
+          </div>
+          <div class="entry">
+            <div class="entry-top">
+              <span class="entry-title">Bachillerato General</span>
+              <span class="entry-date">2020 — 2023</span>
+            </div>
+            <div class="entry-sub">Chihuahua, México</div>
+            <p class="entry-desc">Orientación en ciencias exactas y tecnología con base sólida en matemáticas y pensamiento analítico.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="side-col">
+
+        <div class="section">
+          <div class="sec-label">Datos Personales</div>
+          <div class="dato"><div class="dato-label">Nombre</div><div class="dato-value">Ángel Andrés Mendoza Hurtado</div></div>
+          <div class="dato"><div class="dato-label">Ubicación</div><div class="dato-value">Chihuahua, Chihuahua</div></div>
+          <div class="dato"><div class="dato-label">Teléfono</div><div class="dato-value">614 382 0759</div></div>
+          <div class="dato"><div class="dato-label">Correo</div><div class="dato-value">a367862@uach.mx</div></div>
+          <div class="dato"><div class="dato-label">GitHub</div><div class="dato-value">github.com/a367862-dot</div></div>
+          <div class="dato"><div class="dato-label">Universidad</div><div class="dato-value">UACH · Ing. de Software</div></div>
+        </div>
+
+        <div class="section">
+          <div class="sec-label">Idiomas</div>
+          <div class="lang-item">
+            <div class="lang-row"><span class="lang-name">Español</span><span class="lang-level">Nativo</span></div>
+            <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
+          </div>
+          <div class="lang-item">
+            <div class="lang-row"><span class="lang-name">Inglés</span><span class="lang-level">Básico</span></div>
+            <div class="lang-bar"><div class="lang-fill" style="width:32%"></div></div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="sec-label">Habilidades</div>
+          <div class="skills-wrap">
+            <span class="skill">HTML5</span>
+            <span class="skill">CSS3</span>
+            <span class="skill">JavaScript</span>
+            <span class="skill">Git & GitHub</span>
+            <span class="skill">REST APIs</span>
+            <span class="skill">Trabajo en equipo</span>
+            <span class="skill">Pensamiento lógico</span>
+            <span class="skill">Aprendizaje rápido</span>
+            <span class="skill">Resolución de problemas</span>
+            <span class="skill">MVC</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer">
+      <span>ÁNGEL ANDRÉS MENDOZA HURTADO</span>
+      <div class="footer-dot"></div>
+      <span>2025</span>
+    </div>
+
+  </div>
+</body>
+</html>
