@@ -1,0 +1,408 @@
+<!-- Angel Andres Mendoza Hurtado - Matricula: 367862 -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Angel Mendoza</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #060e1a;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 40px 20px;
+        }
+
+        .cv-wrapper {
+            width: 100%;
+            max-width: 900px;
+        }
+
+        /* header */
+        .header {
+            background: linear-gradient(135deg, #0a1f3d, #0d2d5a);
+            border-radius: 16px;
+            padding: 40px 50px;
+            margin-bottom: 24px;
+            border: 1px solid #1a4a8a;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .header-nombre h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.1;
+        }
+
+        .header-nombre h1 span {
+            color: #3b82f6;
+        }
+
+        .header-nombre p {
+            color: #7aa3d4;
+            font-size: 0.9rem;
+            margin-top: 8px;
+            font-weight: 300;
+        }
+
+        .header-contacto {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            align-items: flex-end;
+        }
+
+        .header-contacto a,
+        .header-contacto span {
+            color: #a8c4e0;
+            font-size: 0.82rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.2s;
+        }
+
+        .header-contacto a:hover {
+            color: #3b82f6;
+        }
+
+        .icono {
+            width: 14px;
+            height: 14px;
+            fill: #3b82f6;
+            flex-shrink: 0;
+        }
+
+        /* grid */
+        .contenido {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 20px;
+        }
+
+        /* estilos de las cards */
+        .card {
+            background: linear-gradient(135deg, #0a1f3d, #0c2448);
+            border: 1px solid #1a4a8a;
+            border-radius: 14px;
+            padding: 28px 32px;
+            margin-bottom: 20px;
+        }
+
+        .card:last-child {
+            margin-bottom: 0;
+        }
+
+        .card h2 {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #3b82f6;
+            margin-bottom: 18px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #1a3a6a;
+        }
+
+        /* objetivo */
+        .objetivo p {
+            font-size: 0.87rem;
+            color: #8aabcc;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        /* experiencia y educacion */
+        .item {
+            margin-bottom: 20px;
+        }
+
+        .item:last-child {
+            margin-bottom: 0;
+        }
+
+        .item-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 4px;
+        }
+
+        .item-top h3 {
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: #ddeeff;
+        }
+
+        .item-top .fecha {
+            font-size: 0.75rem;
+            color: #4a7aaa;
+            white-space: nowrap;
+            margin-left: 10px;
+        }
+
+        .item .lugar {
+            font-size: 0.8rem;
+            color: #3b82f6;
+            font-weight: 500;
+            margin-bottom: 6px;
+        }
+
+        .item p {
+            font-size: 0.82rem;
+            color: #7a9abc;
+            line-height: 1.65;
+            font-weight: 300;
+        }
+
+        /* datos personales */
+        .dato {
+            margin-bottom: 14px;
+        }
+
+        .dato label {
+            display: block;
+            font-size: 0.62rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #4a7aaa;
+            margin-bottom: 2px;
+        }
+
+        .dato p {
+            font-size: 0.83rem;
+            color: #c0d8f0;
+        }
+
+        /* idiomas */
+        .idioma {
+            margin-bottom: 14px;
+        }
+
+        .idioma:last-child {
+            margin-bottom: 0;
+        }
+
+        .idioma-fila {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+
+        .idioma-fila span:first-child {
+            font-size: 0.85rem;
+            color: #c0d8f0;
+            font-weight: 500;
+        }
+
+        .idioma-fila span:last-child {
+            font-size: 0.75rem;
+            color: #4a7aaa;
+        }
+
+        .barra-fondo {
+            height: 4px;
+            background: #0d2040;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .barra-progreso {
+            height: 4px;
+            background: linear-gradient(to right, #1d4ed8, #3b82f6);
+            border-radius: 4px;
+        }
+
+        /* habilidades */
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: #0d2040;
+            border: 1px solid #1b3556;
+            color: #7ab4e0;
+            font-size: 0.75rem;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-weight: 500;
+            transition: all 0.2s;
+            cursor: default;
+        }
+
+        .skill-tag:hover {
+            background: #1a3a6a;
+            color: #fff;
+            border-color: #3b82f6;
+        }
+
+        /* responsive para movil */
+        @media (max-width: 680px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 30px;
+            }
+
+            .header-contacto {
+                align-items: flex-start;
+            }
+
+            .contenido {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="cv-wrapper">
+
+    <!-- encabezado -->
+    <div class="header">
+        <div class="header-nombre">
+            <h1>Ángel Andrés Mendoza Hurtado</h1>
+            <p>Estudiante de Ingeniería de Software · UACH</p>
+        </div>
+        <div class="header-contacto">
+            <span>
+                <svg class="icono" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                Chihuahua, Chihuahua
+            </span>
+            <span>
+                <svg class="icono" viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+                614 382 0759
+            </span>
+            <a href="mailto:a367862@uach.mx">
+                <svg class="icono" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                a367862@uach.mx
+            </a>
+            <a href="https://github.com/a367862-dot" target="_blank">
+                <svg class="icono" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.49.5.09.66-.22.66-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.56 9.56 0 0 1 12 6.8c.85 0 1.71.11 2.51.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.16.58.67.48A10.01 10.01 0 0 0 22 12c0-5.52-4.48-10-10-10z"/></svg>
+                github.com/a367862-dot
+            </a>
+        </div>
+    </div>
+
+    <!-- contenido principal -->
+    <div class="contenido">
+
+        <!-- columna izquierda -->
+        <div class="col-izq">
+
+            <div class="card objetivo">
+                <h2>Objetivo</h2>
+                <p>Apasionado por la tecnología y el desarrollo de software, con ganas de seguir aprendiendo y aportar en entornos donde se construyan soluciones que realmente funcionen. Me interesa trabajar en equipo, enfrentar retos técnicos y seguir creciendo profesionalmente.</p>
+            </div>
+
+            <div class="card">
+                <h2>Experiencia Profesional</h2>
+                <div class="item">
+                    <div class="item-top">
+                        <h3>Proyectos académicos</h3>
+                        <span class="fecha">2022 — Actualidad</span>
+                    </div>
+                    <p class="lugar">UACH · Ingeniería de Software</p>
+                    <p>Desarrollo de distintos proyectos a lo largo de la carrera, trabajando tanto de forma individual como en equipo, aplicando los conocimientos adquiridos en cada materia.</p>
+                </div>
+
+            </div>
+
+            <div class="card">
+                <h2>Preparación Académica</h2>
+                <div class="item">
+                    <div class="item-top">
+                        <h3>Ingeniería de Software</h3>
+                        <span class="fecha">2022 — Actualidad</span>
+                    </div>
+                    <p class="lugar">Universidad Autónoma de Chihuahua (UACH)</p>
+                    <p>Formación en programación, bases de datos, arquitecturas web, metodologías ágiles y desarrollo de software para plataformas emergentes.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- columna derecha -->
+        <div class="col-der">
+
+            <div class="card">
+                <h2>Datos Personales</h2>
+                <div class="dato">
+                    <label>Nombre completo</label>
+                    <p>Ángel Andrés Mendoza Hurtado</p>
+                </div>
+                <div class="dato">
+                    <label>Ubicación</label>
+                    <p>Chihuahua, Chihuahua</p>
+                </div>
+                <div class="dato">
+                    <label>Teléfono</label>
+                    <p>614 382 0759</p>
+                </div>
+                <div class="dato">
+                    <label>Correo</label>
+                    <p>a367862@uach.mx</p>
+                </div>
+                <div class="dato">
+                    <label>GitHub</label>
+                    <p>github.com/a367862-dot</p>
+                </div>
+                <div class="dato">
+                    <label>Carrera</label>
+                    <p>Ingeniería de Software · UACH</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Idiomas</h2>
+                <div class="idioma">
+                    <div class="idioma-fila">
+                        <span>Español</span>
+                        <span>Nativo</span>
+                    </div>
+                    <div class="barra-fondo">
+                        <div class="barra-progreso" style="width: 100%"></div>
+                    </div>
+                </div>
+                <div class="idioma">
+                    <div class="idioma-fila">
+                        <span>Inglés</span>
+                        <span>Avanzado</span>
+                    </div>
+                    <div class="barra-fondo">
+                        <div class="barra-progreso" style="width: 85%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Habilidades</h2>
+                <div class="skills">
+                    <span class="skill-tag">HTML5</span>
+                    <span class="skill-tag">CSS3</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Java</span>
+                    <span class="skill-tag">C</span>
+                    <span class="skill-tag">Git & GitHub</span>
+                    <span class="skill-tag">Trabajo en equipo</span>
+                    <span class="skill-tag">Pensamiento lógico</sp
